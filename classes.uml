@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>sample</OriginalElement>
+  <nodes>
+    <node x="197.0" y="150.0">sample.SerialEngine</node>
+    <node x="0.0" y="225.0">sample.ShoppingCart</node>
+    <node x="141.0" y="375.0">sample.Main</node>
+    <node x="181.0" y="300.0">sample.ListStock</node>
+    <node x="346.0" y="300.0">sample.Conrod</node>
+    <node x="189.0" y="225.0">sample.RacingEngine</node>
+    <node x="237.0" y="75.0">sample.CartGridBagLayout</node>
+    <node x="0.0" y="150.0">sample.CartDataModel</node>
+    <node x="266.0" y="375.0">sample.Ring</node>
+    <node x="0.0" y="75.0">sample.TunedGridBagLayout</node>
+    <node x="0.0" y="0.0">sample.RacingGridBagLayout</node>
+    <node x="245.0" y="0.0">sample.SerialGridBagLayout</node>
+    <node x="0.0" y="300.0">sample.TunedEngine</node>
+    <node x="0.0" y="375.0">sample.Piston</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="222.5" y="202.5" />
+  <SelectedNodes>
+    <node>sample.SerialEngine</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
