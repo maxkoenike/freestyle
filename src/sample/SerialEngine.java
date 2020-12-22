@@ -152,7 +152,7 @@ public class SerialEngine {
 
 
                 if (p1cart > 0) {
-                    cart.add("Kolben der Klasse 3                             " + p1cart + "                                        " + Piston.getPp1() + "�" + "                                                  " + p1cart * Piston.getPp1() + "�");
+                    cart.add("Kolben der Klasse 3" + p1cart + "                                        " + Piston.getPp1() + "�" + "                                                  " + p1cart * Piston.getPp1() + "�");
                 }
 
 
