@@ -12,28 +12,31 @@ import java.awt.Rectangle;
 
 public class SerialEngine {
 
+    static private int p1cart;
+
+    public static int getP1cart() {
+        return p1cart;
+    }
+
+    public static void setP1cart(int p1cart) {
+        SerialEngine.p1cart = p1cart;
+    }
+
+
     public SerialEngine(ArrayList<String> cart) {
 
         JFrame frame2 = new JFrame();
         frame2.setTitle("Komponenten für Serienmotoren");
 
         //TEXTABOVE
-
         JPanel text = new JPanel(new FlowLayout(FlowLayout.CENTER));
         text.add(new JLabel("Bitte wähle deine gewünschten Komponenten aus und füge sie dem Warenkorb hinzu."));
-
-        //GRIDLAYOUT ERSTELLEN
-        JPanel grid = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        //grid.setMaximumSize(new Dimension(400, 400));
-
-
-        //GRID COMPONENTS
+        text.add(new JLabel("Komponenten der Klasse 3 eignen sich für Fahrzeuge mit Serienmotor."));
 
         //PISTON
         JLabel piston = new JLabel("Kolben K3");
         JLabel apiston = new JLabel(Piston.getP1() + " verfügbar");
-        JLabel ppiston = new JLabel("Stückpreis: " + Piston.getPp1() + "�");
-
+        JLabel ppiston = new JLabel("Stückpreis: " + Piston.getPp1() + "€");
 
         int min = 1;
         int maxp = Piston.getP1();
@@ -49,8 +52,8 @@ public class SerialEngine {
         //CONROD
 
         JLabel conrod = new JLabel("Pleuel K3");
-        JLabel aconrod = new JLabel(Conrod.c1 + " verf�gbar");
-        JLabel pconrod = new JLabel("Stückpreis: " + Conrod.getCp1() + "�");
+        JLabel aconrod = new JLabel(Conrod.c1 + " verfügbar");
+        JLabel pconrod = new JLabel("Stückpreis: " + Conrod.getCp1() + "€");
 
         int maxc = Conrod.c1;
         SpinnerModel modelc = new SpinnerNumberModel(initValue, min, maxc, step);
@@ -61,9 +64,9 @@ public class SerialEngine {
 
         //RING
 
-        JLabel ring = new JLabel("Kolbenringset K3");
+        JLabel ring = new JLabel("Kolbenringsatz K3");
         JLabel aring = new JLabel(Ring.r1 + " verfügbar");
-        JLabel pring = new JLabel("Stückpreis: " + Ring.getRp1() + "�");
+        JLabel pring = new JLabel("Stückpreis: " + Ring.getRp1() + "€");
 
         int maxr = Ring.r1;
         SpinnerModel modelr = new SpinnerNumberModel(initValue, min, maxr, step);
@@ -72,87 +75,16 @@ public class SerialEngine {
         JButton radd = new JButton("In den Einkaufswagen");
 
 
-        //FORMAT OF ITEMS
-        piston.setPreferredSize(new Dimension(100, 100));
-        piston.setHorizontalAlignment(JLabel.CENTER);
-
-
-        conrod.setPreferredSize(new Dimension(100, 100));
-        conrod.setHorizontalAlignment(JLabel.CENTER);
-
-
-        ring.setPreferredSize(new Dimension(100, 100));
-        ring.setHorizontalAlignment(JLabel.CENTER);
-
-
-        //CREATING A LIST
-
-        JList serialList = new JList();
-
-        serialList.add(new JLabel("Kolben K3"));
-
-
-        grid.add(serialList);
-
-
-
-
-
-
-        //ADDING COMP. TO GRID
-       /* grid.add(piston);
-        grid.add(apiston);
-        grid.add(ppiston);
-        grid.add(pspinner);
-        grid.add(padd);
-
-        grid.add(conrod);
-        grid.add(aconrod);
-        grid.add(pconrod);
-        grid.add(cspinner);
-        grid.add(cadd);
-
-        grid.add(ring);
-        grid.add(aring);
-        grid.add(pring);
-        grid.add(rspinner);
-        grid.add(radd); */
-
-
-        //LIST
-        //String Komponente[] = {"Kolben K3", "Pleuelstange K3", "Kolbenringset K3"};
-        //JList component = new JList(Komponente);
-        //grid.add(component);
-
-        /*
-         * Overview of serialengine components
-         *
-         * GridLayout(3,4)
-         * Piston "p1" ; available (int p1) ; price p.u. ; add/remove ; into cart
-         *   conrod "c1" ; available (int c1) ; price p.u. ; add/remove ; into cart
-         * 		ringset "r1" ; available (int r1) ; price p.u. ; add/remove ; into cart
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         */
         frame2.add(text, BorderLayout.NORTH);
-        frame2.add(grid, BorderLayout.CENTER);
+
 
 
 //        public void addToCart (String name,int quantity, int price){
 //
-//            grid2.add(new JLabel(name));
-//            grid2.add(new JLabel(quantity));
-//            grid2.add(new JLabel(price));
-//        }
+//           grid2.add(new JLabel(name));
+ //          grid2.add(new JLabel(quantity));
+  //         grid2.add(new JLabel(price));
+  //      }
 
 
         // GET VALUE OF SPINNERS
@@ -170,6 +102,7 @@ public class SerialEngine {
 
 
                 if (p1cart > 0) {
+                    addToCart();
                     cart.add("Kolben der Klasse 3" + p1cart + "                                        " + Piston.getPp1() + "�" + "                                                  " + p1cart * Piston.getPp1() + "�");
                 }
 
@@ -215,30 +148,29 @@ public class SerialEngine {
 
         }));
 
-     /*   frame2.add(new JPanel() {
-            @Override
-            public Dimension getPreferredSize() {
-                return new Dimension(100, 600);
-            }
-
-        });
-
-        frame2.pack();
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
-        Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
-        int x = (int) rect.getMaxX() - frame2.getWidth();
-        int y = 0;
 
 
-        frame2.setLocation(x, y); */
-        frame2.setSize(1000, 800);
+
+
+
+        frame2.add(new SerialGridBagLayout());
+
+        frame2.setSize(1000, 400);
         frame2.setLocationRelativeTo(null);
         frame2.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame2.setVisible(true);
 
 
     }
+
+    public void addToCart() {
+
+        
+
+
+
+    }
+
 
 
 }

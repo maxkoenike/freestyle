@@ -22,7 +22,7 @@ public class ShoppingCart extends JFrame {
         topPanel.add(cartMessage);
 
 
-        JPanel listPane = new JPanel((new FlowLayout(FlowLayout.CENTER)));
+/*        JPanel listPane = new JPanel((new FlowLayout(FlowLayout.CENTER)));
 
         String[] columns = new String[]{"Komponente", "Anzahl", "Einzelpreis"};
 
@@ -46,14 +46,17 @@ public class ShoppingCart extends JFrame {
 
         sendPanel.add(calcIt);
         sendPanel.add(sendIt);
-
+*/
 
         //write order into history & erase number of items out of stock
 
         cartFrame.add(topPanel, BorderLayout.NORTH);
-        cartFrame.add(listPane, BorderLayout.CENTER);
-        cartFrame.add(sendPanel, BorderLayout.SOUTH);
+//        cartFrame.add(listPane, BorderLayout.CENTER);
+//        cartFrame.add(sendPanel, BorderLayout.SOUTH);
 
+
+
+        cartFrame.add(new CartGridBagLayout());
 
         cartFrame.setSize(1000, 800);
         cartFrame.setLocationRelativeTo(null);
