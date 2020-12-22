@@ -61,7 +61,7 @@ public class TunedEngine {
         frame3.add(text, BorderLayout.NORTH);
 
 
-        frame3.add(new TunedGridBagLayout());
+        frame3.add(new TunedGridBagLayout(cart));
         frame3.setSize(1000, 400);
         frame3.setLocationRelativeTo(null);
         frame3.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

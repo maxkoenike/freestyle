@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class TunedGridBagLayout extends JPanel {
 
-    public TunedGridBagLayout() {
+    public TunedGridBagLayout(ArrayList<CartDataModel> cart) {
 
         super(new GridBagLayout());
 
@@ -41,6 +41,7 @@ public class TunedGridBagLayout extends JPanel {
                 String pvalue = pspinner.getValue().toString();
                 int p2cart = Integer.parseInt(pvalue);
                 if (p2cart > 0) {
+                    cart.add(new CartDataModel("Kolben K3", p2cart, Piston.getPp2()));
                 }
             }
 
@@ -66,6 +67,7 @@ public class TunedGridBagLayout extends JPanel {
                 String cvalue = cspinner.getValue().toString();
                 int c2cart = Integer.parseInt(cvalue);
                 if (c2cart > 0) {
+                    cart.add(new CartDataModel("Pleuelstange K3", c2cart, Conrod.getCp2()));
                 }
             }
 
@@ -90,7 +92,7 @@ public class TunedGridBagLayout extends JPanel {
                 String rvalue = rspinner.getValue().toString();
                 int r2cart = Integer.parseInt(rvalue);
                 if (r2cart > 0) {
-
+                    cart.add(new CartDataModel("Kolbenringsatz K3", r2cart, Ring.getRp2()));
                 }
             }
 
