@@ -87,8 +87,6 @@ public class Main {
         }));
 
 
-
-
         //NORTH Panel
         JPanel northPanel = new JPanel(new GridLayout(2, 1));
 
@@ -101,65 +99,36 @@ public class Main {
         welcomePanel.add(welcome);
         northPanel.add(welcomePanel);
 
-
-        //SETTING GL 4 GridButtons
-
-        JPanel middlePanel = new JPanel(new FlowLayout());
-        GroupLayout layout = new GroupLayout(middlePanel);
-        middlePanel.setLayout(layout);
-
-
-        //TEXT ABOVE GridButtons
+        //TEXT ABOVE middlePanel
         JLabel WA = new JLabel("Für welchen Anwendungsbereich suchst du Komponenten?");
         Font fontr = new Font(Font.DIALOG, Font.PLAIN, 14);
         WA.setFont(fontr);
         WA.setHorizontalAlignment(JLabel.CENTER);
         northPanel.add(WA);
 
-        //ADDING BUTTONS INTO GRID
+        //SETTING GL 4 middlePanel
+
+        JPanel middlePanel = new JPanel(new FlowLayout());
+        middlePanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+        //ADDING BUTTONS INTO middlePanel
         JButton button3 = new JButton("Für Serienmotoren");
         JButton button4 = new JButton("Für leistungsgesteigerte Motoren");
         JButton button5 = new JButton("Für Rennsport-Motoren");
-
-        button3.setSize(new Dimension(100, 100));
-        button4.setSize(new Dimension(100, 100));
-        button5.setSize(new Dimension(100, 100));
 
         button3.setFont(fontr);
         button4.setFont(fontr);
         button5.setFont(fontr);
 
-        layout.setHorizontalGroup(
-                layout.createSequentialGroup()
-                        .addComponent(button3)
-                        .addComponent(button4)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                        .addComponent(button5)
-
-
-        ));
-
-        layout.setVerticalGroup(
-                layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                        .addComponent(button3)
-                        .addComponent(button4)
-                        .addComponent(button5)
-
-
-
-        ));
-
-
-        /*middlePanel.add(button3);
+        middlePanel.add(button3);
         middlePanel.add(button4);
-        middlePanel.add(button5); */
+        middlePanel.add(button5);
 
         //ADDING PANELS into FRAME
         frame.add(northPanel, BorderLayout.NORTH);
         frame.add(middlePanel, BorderLayout.CENTER);
 
-        frame.setSize(1100, 400);
+        frame.setSize(1100, 200);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 

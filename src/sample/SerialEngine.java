@@ -5,6 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.awt.Dimension;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
 
 public class SerialEngine {
 
@@ -19,8 +23,8 @@ public class SerialEngine {
         text.add(new JLabel("Bitte wähle deine gewünschten Komponenten aus und füge sie dem Warenkorb hinzu."));
 
         //GRIDLAYOUT ERSTELLEN
-        JPanel grid = new JPanel(new GridLayout(3, 5));
-        grid.setMaximumSize(new Dimension(400, 400));
+        JPanel grid = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        //grid.setMaximumSize(new Dimension(400, 400));
 
 
         //GRID COMPONENTS
@@ -81,8 +85,22 @@ public class SerialEngine {
         ring.setHorizontalAlignment(JLabel.CENTER);
 
 
+        //CREATING A LIST
+
+        JList serialList = new JList();
+
+        serialList.add(new JLabel("Kolben K3"));
+
+
+        grid.add(serialList);
+
+
+
+
+
+
         //ADDING COMP. TO GRID
-        grid.add(piston);
+       /* grid.add(piston);
         grid.add(apiston);
         grid.add(ppiston);
         grid.add(pspinner);
@@ -98,7 +116,7 @@ public class SerialEngine {
         grid.add(aring);
         grid.add(pring);
         grid.add(rspinner);
-        grid.add(radd);
+        grid.add(radd); */
 
 
         //LIST
@@ -197,7 +215,23 @@ public class SerialEngine {
 
         }));
 
+     /*   frame2.add(new JPanel() {
+            @Override
+            public Dimension getPreferredSize() {
+                return new Dimension(100, 600);
+            }
 
+        });
+
+        frame2.pack();
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
+        Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
+        int x = (int) rect.getMaxX() - frame2.getWidth();
+        int y = 0;
+
+
+        frame2.setLocation(x, y); */
         frame2.setSize(1000, 800);
         frame2.setLocationRelativeTo(null);
         frame2.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

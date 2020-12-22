@@ -19,20 +19,14 @@ public class ListStock {
         JLabel inStock = new JLabel("Aktueller Lagerbestand");
         inStock.setFont(font);
 
-        JList stockList = new JList();
 
-        stockList.add(new JLabel("Es sind " + Piston.getP1() + " Kolben der Klasse 3 auf Lager."));
-        stockList.add(new JLabel("Es sind " + Piston.getP2() + " Kolben der Klasse 2 auf Lager."));
-        stockList.add(new JLabel("Es sind " + Piston.getP3() + " Kolben der Klasse 1 auf Lager."));
 
-        stockList.add(new JLabel("Es sind " + Conrod.c1 + " Pleuelstangen der Klasse 3 auf Lager."));
-        stockList.add(new JLabel("Es sind " + Conrod.c2 + " Pleuelstangen der Klasse 2 auf Lager."));
-        stockList.add(new JLabel("Es sind " + Conrod.c3 + " Pleuelstangen der Klasse 1 auf Lager."));
+        String Stock[] = { "Es sind " + Piston.getP3() + " Kolben der Klasse 1 auf Lager", "Es sind " + Piston.getP2() + " Kolben der Klasse 2 auf Lager.","Es sind " + Piston.getP1() + " Kolben der Klasse 3 auf Lager.","_______________________________________________________", "",
+                "Es sind " + Conrod.c3 + " Pleuelstangen der Klasse 1 auf Lager.", "Es sind " + Conrod.c2 + " Pleuelstangen der Klasse 2 auf Lager.", "Es sind " + Conrod.c1 + " Pleuelstangen der Klasse 3 auf Lager.", "_______________________________________________________", "",
+                "Es sind " + Ring.r3 + " Kolbenringsätze der Klasse 1 auf Lager.", "Es sind " + Ring.r2 + " Kolbenringsätze der Klasse 2 auf Lager.", "Es sind " + Ring.r1 + " Kolbenringsätze der Klasse 3 auf Lager." };
 
-        stockList.add(new JLabel("Es sind " + Ring.r1 + " Kolbenringsets der Klasse 3 auf Lager."));
-        stockList.add(new JLabel("Es sind " + Ring.r2 + " Kolbenringsets der Klasse 2 auf Lager."));
-        stockList.add(new JLabel("Es sind " + Ring.r3 + " Kolbenringsets der Klasse 1 auf Lager."));
 
+        JList stockList = new JList(Stock);
 
 
         centerpane.add(stockList);
