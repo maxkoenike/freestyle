@@ -10,10 +10,8 @@ import java.util.ArrayList;
 
 public class Main {
 
-    static int total;
-
     private static ArrayList<CartDataModel> cart = new ArrayList<CartDataModel>();
-    private static ArrayList<String> history = new ArrayList<String>();
+
 
 
     public static void main(String[] args) {
@@ -33,20 +31,14 @@ public class Main {
         JMenu storage = new JMenu("Lager");
         JMenuItem stock = new JMenuItem("Bestand auflisten");
 
-        JMenu historyMenu = new JMenu("Bestellhistorie");
-        JMenuItem showHistory = new JMenuItem("Bestellhistorie anzeigen");
-
         JMenu cartMenu = new JMenu("Einkaufswagen");
         JMenuItem insideCart = new JMenuItem("Einkaufswagen anzeigen");
 
-
         menu.add(storage);
-        menu.add(historyMenu);
         menu.add(cartMenu);
 
         storage.add(stock);
         cartMenu.add(insideCart);
-        historyMenu.add(showHistory);
 
         frame.setJMenuBar(menu);
 
@@ -63,18 +55,6 @@ public class Main {
 
         });
 
-        //SETTING ACTION FOR HISTORY BUTTON
-        showHistory.addActionListener((new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                OrderHistory orderHistory = new OrderHistory(history);
-
-
-            }
-        }));
-
 
         // SETTING ACTION FOR SHOPPING CART BUTTON
         insideCart.addActionListener((new ActionListener() {
@@ -82,7 +62,6 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 ShoppingCart shoppingCart = new ShoppingCart(cart);
             }
-
 
         }));
 
@@ -139,10 +118,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SerialEngine serialEngine = new SerialEngine(cart);
-
-
             }
-
 
         }));
 
@@ -151,9 +127,8 @@ public class Main {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-  //              TunedEngine tunedEngine = new TunedEngine((cart));
+                TunedEngine tunedEngine = new TunedEngine((cart));
             }
-
 
         }));
 
@@ -162,9 +137,8 @@ public class Main {
 
             @Override
             public void actionPerformed(ActionEvent e) {
- //               RacingEngine racingEngine = new RacingEngine((cart));
+                RacingEngine racingEngine = new RacingEngine((cart));
             }
-
 
         }));
     }

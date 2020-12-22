@@ -34,6 +34,19 @@ public class TunedGridBagLayout extends JPanel {
 
         JButton padd = new JButton("In den Einkaufswagen");
 
+        padd.addActionListener((new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String pvalue = pspinner.getValue().toString();
+                int p2cart = Integer.parseInt(pvalue);
+                if (p2cart > 0) {
+                }
+            }
+
+
+        }));
+
 
         //CONROD
         int maxc = Conrod.c2;
@@ -46,6 +59,19 @@ public class TunedGridBagLayout extends JPanel {
         JSpinner cspinner = new JSpinner(modelc);
         JButton cadd = new JButton("In den Einkaufswagen");
 
+        cadd.addActionListener((new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String cvalue = cspinner.getValue().toString();
+                int c2cart = Integer.parseInt(cvalue);
+                if (c2cart > 0) {
+                }
+            }
+
+
+        }));
+
         //RING
         int maxr = Ring.r2;
         SpinnerModel modelr = new SpinnerNumberModel(initValue, min, maxr, step);
@@ -56,6 +82,20 @@ public class TunedGridBagLayout extends JPanel {
 
         JSpinner rspinner = new JSpinner(modelr);
         JButton radd = new JButton("In den Einkaufswagen");
+
+        radd.addActionListener((new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String rvalue = rspinner.getValue().toString();
+                int r2cart = Integer.parseInt(rvalue);
+                if (r2cart > 0) {
+
+                }
+            }
+
+
+        }));
 
 
         //SETTING UP GRIDS ROWS AND COLUMNS AND ADDING COMPONENTS TO GRID

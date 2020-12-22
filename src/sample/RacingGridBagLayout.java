@@ -2,10 +2,13 @@ package sample;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class RacingGridBagLayout extends JPanel {
 
-    public RacingGridBagLayout() {
+    public RacingGridBagLayout(ArrayList<CartDataModel> cart) {
 
         super(new GridBagLayout());
 
@@ -31,6 +34,30 @@ public class RacingGridBagLayout extends JPanel {
 
         JButton padd = new JButton("In den Einkaufswagen");
 
+        // GET VALUE OF SPINNERS
+
+        padd.addActionListener((new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String pvalue = pspinner.getValue().toString();
+                System.out.println(pvalue);
+
+                int p3cart = Integer.parseInt(pvalue);
+
+                System.out.println("und als int: " + p3cart);
+
+
+                if (p3cart > 0) {
+                    cart.add(new CartDataModel("Kolben K1", p3cart, Piston.getPp3()));
+
+                }
+
+
+            }
+
+
+        }));
 
         //CONROD
         int maxc = Conrod.c3;
@@ -44,6 +71,25 @@ public class RacingGridBagLayout extends JPanel {
         JSpinner cspinner = new JSpinner(modelc);
         JButton cadd = new JButton("In den Einkaufswagen");
 
+        cadd.addActionListener((new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String cvalue = cspinner.getValue().toString();
+                System.out.println(cvalue);
+
+                int c3cart = Integer.parseInt(cvalue);
+
+                if (c3cart > 0) {
+                    cart.add(new CartDataModel("Pleuelstange K1", c3cart, Conrod.getCp3()));
+                }
+
+
+            }
+
+
+        }));
+
         //RING
         int maxr = Ring.r3;
         SpinnerModel modelr = new SpinnerNumberModel(initValue, min, maxr, step);
@@ -54,6 +100,24 @@ public class RacingGridBagLayout extends JPanel {
 
         JSpinner rspinner = new JSpinner(modelr);
         JButton radd = new JButton("In den Einkaufswagen");
+
+
+        radd.addActionListener((new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String rvalue = rspinner.getValue().toString();
+                int r3cart = Integer.parseInt(rvalue);
+
+                if (r3cart > 0) {
+                    cart.add(new CartDataModel("Kolbenringsatz K1", r3cart, Ring.getRp3()));
+
+                }
+
+            }
+
+
+        }));
 
 
         //SETTING UP GRIDS ROWS AND COLUMNS AND ADDING COMPONENTS TO GRID

@@ -24,16 +24,19 @@ public class ShoppingCart extends JFrame {
 
         JPanel listPane = new JPanel((new FlowLayout(FlowLayout.CENTER)));
 
-        String[] columns = new String[]{"Komponente", "Anzahl", "Einzelpreis"};
+        String[] columns = new String[]{"Komponente", "Anzahl", "Einzelpreis", "Gesamtpreis"};
 
         DefaultTableModel defaultModel = new DefaultTableModel(columns, 0);
 
         int totalprice = 0;
 
+        defaultModel.addRow(columns);
+
         for (int i = 0; i < cart.size(); i++) {
-            defaultModel.addRow(new Object[]{cart.get(i).name, cart.get(i).quantity, cart.get(i).price});
+            defaultModel.addRow(new Object[]{cart.get(i).name, cart.get(i).quantity, cart.get(i).price, cart.get(i).pricesum});
             totalprice = totalprice + (cart.get(i).quantity * cart.get(i).price);
         }
+
 
 
         //create table with data

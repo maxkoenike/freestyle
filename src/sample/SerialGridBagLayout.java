@@ -43,11 +43,7 @@ public class SerialGridBagLayout extends JPanel {
 
                 int p1cart = Integer.parseInt(pvalue);
 
-                System.out.println("und als int: " + p1cart);
-
-
                 if (p1cart > 0) {
-//                   cart.add("Kolben der Klasse 3" + p1cart + "                                        " + Piston.getPp1() + "�" + "                                                  " + p1cart * Piston.getPp1() + "�");
                     cart.add(new CartDataModel("Kolben K3", p1cart, Piston.getPp1()));
 
                 }
@@ -80,10 +76,8 @@ public class SerialGridBagLayout extends JPanel {
                 int c1cart = Integer.parseInt(cvalue);
 
                 if (c1cart > 0) {
-//                    cart.add("Pleuelstange der Klasse 3                 " + c1cart + "                                        " + Conrod.getCp1() + "�" + "                                                  " + c1cart * Conrod.getCp1() + "�");
                     cart.add(new CartDataModel("Pleuelstange K3", c1cart, Conrod.getCp1()));
                 }
-
 
             }
 
@@ -109,13 +103,10 @@ public class SerialGridBagLayout extends JPanel {
                 int r1cart = Integer.parseInt(rvalue);
 
                 if (r1cart > 0) {
-//                    cart.add("Kolbenringsatz der Klasse 3              " + r1cart + "                                        " + Ring.getRp1() + "�" + "                                                  " + r1cart * Ring.getRp1() + "�");
                     cart.add(new CartDataModel("Kolbenringsatz K3", r1cart, Ring.getRp1()));
                 }
 
-
             }
-
 
         }));
 

@@ -12,17 +12,6 @@ import java.awt.Rectangle;
 
 public class SerialEngine {
 
-    static private int p1cart;
-
-    public static int getP1cart() {
-        return p1cart;
-    }
-
-    public static void setP1cart(int p1cart) {
-        SerialEngine.p1cart = p1cart;
-    }
-
-
     public SerialEngine(ArrayList<CartDataModel> cart) {
 
         JFrame frame2 = new JFrame();
@@ -76,16 +65,6 @@ public class SerialEngine {
 
 
         frame2.add(text, BorderLayout.NORTH);
-
-
-
-//        public void addToCart (String name,int quantity, int price){
-//
-//           grid2.add(new JLabel(name));
- //          grid2.add(new JLabel(quantity));
-  //         grid2.add(new JLabel(price));
-  //      }
-
         frame2.add(new SerialGridBagLayout(cart));
 
         frame2.setSize(1000, 400);
@@ -96,13 +75,6 @@ public class SerialEngine {
 
     }
 
-    public void addToCart() {
-
-
-
-
-
-    }
 
 
 
