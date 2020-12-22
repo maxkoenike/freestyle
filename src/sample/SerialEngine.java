@@ -23,7 +23,7 @@ public class SerialEngine {
     }
 
 
-    public SerialEngine(ArrayList<String> cart) {
+    public SerialEngine(ArrayList<CartDataModel> cart) {
 
         JFrame frame2 = new JFrame();
         frame2.setTitle("Komponenten für Serienmotoren");
@@ -86,74 +86,7 @@ public class SerialEngine {
   //         grid2.add(new JLabel(price));
   //      }
 
-
-        // GET VALUE OF SPINNERS
-
-        padd.addActionListener((new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String pvalue = pspinner.getValue().toString();
-                System.out.println(pvalue);
-
-                int p1cart = Integer.parseInt(pvalue);
-
-                System.out.println("und als int: " + p1cart);
-
-
-                if (p1cart > 0) {
-                    addToCart();
-                    cart.add("Kolben der Klasse 3" + p1cart + "                                        " + Piston.getPp1() + "�" + "                                                  " + p1cart * Piston.getPp1() + "�");
-                }
-
-
-            }
-
-
-        }));
-
-        cadd.addActionListener((new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String cvalue = cspinner.getValue().toString();
-                System.out.println(cvalue);
-
-                int c1cart = Integer.parseInt(cvalue);
-
-                if (c1cart > 0) {
-                    cart.add("Pleuelstange der Klasse 3                 " + c1cart + "                                        " + Conrod.getCp1() + "�" + "                                                  " + c1cart * Conrod.getCp1() + "�");
-                }
-
-
-            }
-
-
-        }));
-
-        radd.addActionListener((new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String rvalue = rspinner.getValue().toString();
-                int r1cart = Integer.parseInt(rvalue);
-
-                if (r1cart > 0) {
-                    cart.add("Kolbenringsatz der Klasse 3              " + r1cart + "                                        " + Ring.getRp1() + "�" + "                                                  " + r1cart * Ring.getRp1() + "�");
-
-                }
-
-            }
-
-
-        }));
-
-
-
-
-
-
-        frame2.add(new SerialGridBagLayout());
+        frame2.add(new SerialGridBagLayout(cart));
 
         frame2.setSize(1000, 400);
         frame2.setLocationRelativeTo(null);
@@ -165,7 +98,7 @@ public class SerialEngine {
 
     public void addToCart() {
 
-        
+
 
 
 

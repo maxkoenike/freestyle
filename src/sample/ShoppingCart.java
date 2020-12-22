@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class ShoppingCart extends JFrame {
 
-    public ShoppingCart(ArrayList<String> cart) {
+    public ShoppingCart(ArrayList<CartDataModel> cart) {
 
         JFrame cartFrame = new JFrame();
         cartFrame.setTitle("Einkaufswagen");
@@ -22,41 +22,38 @@ public class ShoppingCart extends JFrame {
         topPanel.add(cartMessage);
 
 
-/*        JPanel listPane = new JPanel((new FlowLayout(FlowLayout.CENTER)));
+        JPanel listPane = new JPanel((new FlowLayout(FlowLayout.CENTER)));
 
         String[] columns = new String[]{"Komponente", "Anzahl", "Einzelpreis"};
 
         DefaultTableModel defaultModel = new DefaultTableModel(columns, 0);
 
+        int totalprice = 0;
 
         for (int i = 0; i < cart.size(); i++) {
-            defaultModel.addRow(new Object[]{cart.get(i), "Test", "Test"});
+            defaultModel.addRow(new Object[]{cart.get(i).name, cart.get(i).quantity, cart.get(i).price});
+            totalprice = totalprice + (cart.get(i).quantity * cart.get(i).price);
         }
+
 
         //create table with data
         JTable table = new JTable(defaultModel);
+
+
         table.setPreferredSize(new Dimension(500, 500));
 
         listPane.add(table);
 
-        //send order and erase cart
-        JPanel sendPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        JButton calcIt = new JButton("Gesamtsumme berechnen");
-        JButton sendIt = new JButton("Bestellen");
-
-        sendPanel.add(calcIt);
-        sendPanel.add(sendIt);
-*/
-
-        //write order into history & erase number of items out of stock
+        JPanel sendPanel = new JPanel();
+        sendPanel.add(new JLabel("Gesamtsumme : " + totalprice + " € (zum Aktualisieren Fenster schließen und erneut öffnen.)"));
 
         cartFrame.add(topPanel, BorderLayout.NORTH);
-//        cartFrame.add(listPane, BorderLayout.CENTER);
-//        cartFrame.add(sendPanel, BorderLayout.SOUTH);
+        cartFrame.add(listPane, BorderLayout.CENTER);
+        cartFrame.add(sendPanel, BorderLayout.SOUTH);
 
 
 
-        cartFrame.add(new CartGridBagLayout());
+//        cartFrame.add(new CartGridBagLayout());
 
         cartFrame.setSize(1000, 800);
         cartFrame.setLocationRelativeTo(null);

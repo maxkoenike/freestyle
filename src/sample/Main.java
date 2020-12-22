@@ -12,7 +12,7 @@ public class Main {
 
     static int total;
 
-    private static ArrayList<String> cart = new ArrayList<String>();
+    private static ArrayList<CartDataModel> cart = new ArrayList<CartDataModel>();
     private static ArrayList<String> history = new ArrayList<String>();
 
 
@@ -151,7 +151,7 @@ public class Main {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                TunedEngine tunedEngine = new TunedEngine((cart));
+  //              TunedEngine tunedEngine = new TunedEngine((cart));
             }
 
 
@@ -162,7 +162,7 @@ public class Main {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                RacingEngine racingEngine = new RacingEngine((cart));
+ //               RacingEngine racingEngine = new RacingEngine((cart));
             }
 
 

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class SerialGridBagLayout extends JPanel {
 
-    public SerialGridBagLayout() {
+    public SerialGridBagLayout(ArrayList<CartDataModel> cart) {
 
         super(new GridBagLayout());
 
@@ -34,6 +34,29 @@ public class SerialGridBagLayout extends JPanel {
 
         JButton padd = new JButton("In den Einkaufswagen");
 
+        padd.addActionListener((new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String pvalue = pspinner.getValue().toString();
+                System.out.println(pvalue);
+
+                int p1cart = Integer.parseInt(pvalue);
+
+                System.out.println("und als int: " + p1cart);
+
+
+                if (p1cart > 0) {
+//                   cart.add("Kolben der Klasse 3" + p1cart + "                                        " + Piston.getPp1() + "�" + "                                                  " + p1cart * Piston.getPp1() + "�");
+                    cart.add(new CartDataModel("Kolben K3", p1cart, Piston.getPp1()));
+
+                }
+
+
+            }
+
+
+        }));
 
         //CONROD
         int maxc = Conrod.c1;
@@ -47,6 +70,26 @@ public class SerialGridBagLayout extends JPanel {
         JSpinner cspinner = new JSpinner(modelc);
         JButton cadd = new JButton("In den Einkaufswagen");
 
+        cadd.addActionListener((new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String cvalue = cspinner.getValue().toString();
+                System.out.println(cvalue);
+
+                int c1cart = Integer.parseInt(cvalue);
+
+                if (c1cart > 0) {
+//                    cart.add("Pleuelstange der Klasse 3                 " + c1cart + "                                        " + Conrod.getCp1() + "�" + "                                                  " + c1cart * Conrod.getCp1() + "�");
+                    cart.add(new CartDataModel("Pleuelstange K3", c1cart, Conrod.getCp1()));
+                }
+
+
+            }
+
+
+        }));
+
         //RING
         int maxr = Ring.r1;
         SpinnerModel modelr = new SpinnerNumberModel(initValue, min, maxr, step);
@@ -57,6 +100,24 @@ public class SerialGridBagLayout extends JPanel {
 
         JSpinner rspinner = new JSpinner(modelr);
         JButton radd = new JButton("In den Einkaufswagen");
+
+        radd.addActionListener((new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String rvalue = rspinner.getValue().toString();
+                int r1cart = Integer.parseInt(rvalue);
+
+                if (r1cart > 0) {
+//                    cart.add("Kolbenringsatz der Klasse 3              " + r1cart + "                                        " + Ring.getRp1() + "�" + "                                                  " + r1cart * Ring.getRp1() + "�");
+                    cart.add(new CartDataModel("Kolbenringsatz K3", r1cart, Ring.getRp1()));
+                }
+
+
+            }
+
+
+        }));
 
 
         //SETTING UP GRIDS ROWS AND COLUMNS AND ADDING COMPONENTS TO GRID
