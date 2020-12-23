@@ -6,7 +6,7 @@ public class Piston {
     //ANZAHL DER KOMPONENTEN IM LAGER
 
     static private int p1 = 10;
-    static private int p2 = 8;
+    static private int p2 = 15;
     static private int p3 = 11;
 
 
@@ -37,9 +37,9 @@ public class Piston {
 
     //PREISE DER KOMPONENTEN
 
-    static private int pp1 = 60;
-    static private int pp2 = 80;
-    static private int pp3 = 100;
+    static private int pp1 = 115;
+    static private int pp2 = 169;
+    static private int pp3 = 210;
 
 
     public static int getPp1() {

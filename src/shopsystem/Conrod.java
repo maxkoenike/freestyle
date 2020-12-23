@@ -4,12 +4,12 @@ public class Conrod {
 	
 	
 	static int c1 = 12;
-	static int c2 = 9;
-	static int c3 = 5;
+	static int c2 = 15;
+	static int c3 = 16;
 	
-	static private int cp1 = 60;
-	static private int cp2 = 80;
-	static private int cp3 = 100;
+	static private int cp1 = 80;
+	static private int cp2 = 250;
+	static private int cp3 = 599;
 	
 	public static int getCp1() {
 		return cp1;

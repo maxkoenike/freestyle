@@ -32,7 +32,7 @@ public class ShoppingCart extends JFrame {
         defaultModel.addRow(columns);
 
         for (int i = 0; i < cart.size(); i++) {
-            defaultModel.addRow(new Object[]{cart.get(i).name, cart.get(i).quantity, cart.get(i).price, cart.get(i).pricesum});
+            defaultModel.addRow(new Object[]{cart.get(i).name, cart.get(i).quantity + " Stück", cart.get(i).price + " €", cart.get(i).pricesum + " €"});
             totalprice = totalprice + (cart.get(i).quantity * cart.get(i).price);
         }
 
