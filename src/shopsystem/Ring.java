@@ -1,4 +1,4 @@
-package sample;
+package shopsystem;
 
 public class Ring {
 

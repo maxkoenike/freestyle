@@ -1,4 +1,4 @@
-package sample;
+package shopsystem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,9 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class SerialGridBagLayout extends JPanel {
+public class TunedGridBagLayout extends JPanel {
 
-    public SerialGridBagLayout(ArrayList<CartDataModel> cart) {
+    public TunedGridBagLayout(ArrayList<CartDataModel> cart) {
 
         super(new GridBagLayout());
 
@@ -16,19 +16,19 @@ public class SerialGridBagLayout extends JPanel {
 
         // INIT ALL ITEMS
         JLabel text = new JLabel("Bitte wähle deine gewünschten Komponenten aus und füge sie dem Warenkorb hinzu.");
-        JLabel text2 = new JLabel("Komponenten der Klasse 2 eignen sich für leistungsgesteigerte Fahrzeuge.");
+
         //SPINNER VAR
         int min = 1;
         int step = 1;
         int initValue = 1;
 
         //PISTON
-        int maxp = Piston.getP1();
+        int maxp = Piston.getP2();
         SpinnerModel model = new SpinnerNumberModel(initValue, min, maxp, step);
 
-        JLabel piston = new JLabel("Kolben K3");
-        JLabel apiston = new JLabel(Piston.getP1() + " verfügbar");
-        JLabel ppiston = new JLabel("Stückpreis: " + Piston.getPp1() + "€");
+        JLabel piston = new JLabel("Kolben K2");
+        JLabel apiston = new JLabel(Piston.getP2() + " verfügbar");
+        JLabel ppiston = new JLabel("Stückpreis: " + Piston.getPp2() + "€");
 
         JSpinner pspinner = new JSpinner(model);
 
@@ -39,29 +39,23 @@ public class SerialGridBagLayout extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String pvalue = pspinner.getValue().toString();
-                System.out.println(pvalue);
-
-                int p1cart = Integer.parseInt(pvalue);
-
-                if (p1cart > 0) {
-                    cart.add(new CartDataModel("Kolben K3", p1cart, Piston.getPp1()));
-
+                int p2cart = Integer.parseInt(pvalue);
+                if (p2cart > 0) {
+                    cart.add(new CartDataModel("Kolben K3", p2cart, Piston.getPp2()));
                 }
-
-
             }
 
 
         }));
 
+
         //CONROD
-        int maxc = Conrod.c1;
+        int maxc = Conrod.c2;
         SpinnerModel modelc = new SpinnerNumberModel(initValue, min, maxc, step);
 
-
-        JLabel conrod = new JLabel("Pleuel K3");
-        JLabel aconrod = new JLabel(Conrod.c1 + " verfügbar");
-        JLabel pconrod = new JLabel("Stückpreis: " + Conrod.getCp1() + "€");
+        JLabel conrod = new JLabel("Pleuel K2");
+        JLabel aconrod = new JLabel(Conrod.c2 + " verfügbar");
+        JLabel pconrod = new JLabel("Stückpreis: " + Conrod.getCp2() + "€");
 
         JSpinner cspinner = new JSpinner(modelc);
         JButton cadd = new JButton("In den Einkaufswagen");
@@ -71,26 +65,22 @@ public class SerialGridBagLayout extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String cvalue = cspinner.getValue().toString();
-                System.out.println(cvalue);
-
-                int c1cart = Integer.parseInt(cvalue);
-
-                if (c1cart > 0) {
-                    cart.add(new CartDataModel("Pleuelstange K3", c1cart, Conrod.getCp1()));
+                int c2cart = Integer.parseInt(cvalue);
+                if (c2cart > 0) {
+                    cart.add(new CartDataModel("Pleuelstange K3", c2cart, Conrod.getCp2()));
                 }
-
             }
 
 
         }));
 
         //RING
-        int maxr = Ring.r1;
+        int maxr = Ring.r2;
         SpinnerModel modelr = new SpinnerNumberModel(initValue, min, maxr, step);
 
-        JLabel ring = new JLabel("Kolbenringset K3");
-        JLabel aring = new JLabel(Ring.r1 + " verfügbar");
-        JLabel pring = new JLabel("Stückpreis: " + Ring.getRp1() + "€");
+        JLabel ring = new JLabel("Kolbenringset K2");
+        JLabel aring = new JLabel(Ring.r2 + " verfügbar");
+        JLabel pring = new JLabel("Stückpreis: " + Ring.getRp2() + "€");
 
         JSpinner rspinner = new JSpinner(modelr);
         JButton radd = new JButton("In den Einkaufswagen");
@@ -100,13 +90,12 @@ public class SerialGridBagLayout extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String rvalue = rspinner.getValue().toString();
-                int r1cart = Integer.parseInt(rvalue);
-
-                if (r1cart > 0) {
-                    cart.add(new CartDataModel("Kolbenringsatz K3", r1cart, Ring.getRp1()));
+                int r2cart = Integer.parseInt(rvalue);
+                if (r2cart > 0) {
+                    cart.add(new CartDataModel("Kolbenringsatz K3", r2cart, Ring.getRp2()));
                 }
-
             }
+
 
         }));
 
@@ -191,8 +180,6 @@ public class SerialGridBagLayout extends JPanel {
         add(radd, gbc);
 
     }
-
-
 
 
 }

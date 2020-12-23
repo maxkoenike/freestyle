@@ -1,4 +1,4 @@
-package sample;
+package shopsystem;
 
 import javax.swing.*;
 import java.awt.*;
